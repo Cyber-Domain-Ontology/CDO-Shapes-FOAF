@@ -18,6 +18,46 @@
 		;
 	.
 
+sh-foaf:Document-disjointWith-Organization-shape
+	a sh:NodeShape ;
+	sh:message "foaf:Document and foaf:Organization are disjoint classes."@en ;
+	sh:not [
+		a sh:NodeShape ;
+		sh:class foaf:Organization ;
+	] ;
+	sh:targetClass foaf:Document ;
+	.
+
+sh-foaf:Document-disjointWith-Project-shape
+	a sh:NodeShape ;
+	sh:message "foaf:Document and foaf:Project are disjoint classes."@en ;
+	sh:not [
+		a sh:NodeShape ;
+		sh:class foaf:Project ;
+	] ;
+	sh:targetClass foaf:Document ;
+	.
+
+sh-foaf:Organization-disjointWith-Person-shape
+	a sh:NodeShape ;
+	sh:message "foaf:Organization and foaf:Person are disjoint classes."@en ;
+	sh:not [
+		a sh:NodeShape ;
+		sh:class foaf:Person ;
+	] ;
+	sh:targetClass foaf:Organization ;
+	.
+
+sh-foaf:Person-disjointWith-Project-shape
+	a sh:NodeShape ;
+	sh:message "foaf:Person and foaf:Project are disjoint classes."@en ;
+	sh:not [
+		a sh:NodeShape ;
+		sh:class foaf:Project ;
+	] ;
+	sh:targetClass foaf:Person ;
+	.
+
 sh-foaf:depiction-range-shape
 	a sh:NodeShape ;
 	sh:class foaf:Image ;

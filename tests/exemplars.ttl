@@ -14,6 +14,10 @@
 	owl:imports <http://xmlns.com/foaf/0.1/> ;
 	.
 
+kb:Document-05943940-ba94-4c99-807e-6c02345609a5
+	a foaf:Document ;
+	.
+
 kb:Image-98525b14-302b-44a1-8c35-82b758531d98
 	a foaf:Image ;
 	.
@@ -21,6 +25,14 @@ kb:Image-98525b14-302b-44a1-8c35-82b758531d98
 kb:Image-a5423d0b-8752-444e-ad47-9ac2d5579717
 	a foaf:Image ;
 	foaf:depicts kb:Thing-55c62ab8-ea65-4ae0-9e96-0ff4b04e8bd4 ;
+	.
+
+kb:Organization-16d1f813-a501-42f0-97b1-d41b20595d06
+	a foaf:Organization ;
+	.
+
+kb:Person-91a56f33-943f-43e6-b53f-75d23600fe46
+	a foaf:Person ;
 	.
 
 kb:Thing-3e09d460-5076-4076-a583-821fe1b0dff4
