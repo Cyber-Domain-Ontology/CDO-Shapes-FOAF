@@ -1,20 +1,29 @@
-# imports: http://example.org/shapes/example
+# imports: http://xmlns.com/foaf/0.1/
 
-@prefix ex: <http://example.org/ontology/example/> .
-@prefix drafting: <http://example.org/ontology/drafting/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix kb: <http://example.org/kb/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix uco-identity: <https://ontology.unifiedcyberontology.org/uco/identity/> .
+@prefix uco-observable: <https://ontology.unifiedcyberontology.org/uco/observable/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://example.org/kb>
 	a owl:Ontology ;
-	rdfs:comment "This knowledge base instantiates each of the shape-reviewed classes and properties, so SHACL shapes can be exercised for the reviewed ontology."@en ;
-	owl:imports <http://example.org/shapes/example> ;
+	owl:imports <http://xmlns.com/foaf/0.1/> ;
 	.
 
-kb:Thing-76f5befa-f5e1-4b2c-8d7b-ea7cf18ecca6
-	a ex:Thing ;
+kb:Image-98525b14-302b-44a1-8c35-82b758531d98
+	a foaf:Image ;
+	.
+
+kb:Image-a5423d0b-8752-444e-ad47-9ac2d5579717
+	a foaf:Image ;
+	foaf:depicts kb:Thing-55c62ab8-ea65-4ae0-9e96-0ff4b04e8bd4 ;
+	.
+
+kb:Thing-3e09d460-5076-4076-a583-821fe1b0dff4
+	foaf:depiction kb:Image-98525b14-302b-44a1-8c35-82b758531d98 ;
 	.
 
