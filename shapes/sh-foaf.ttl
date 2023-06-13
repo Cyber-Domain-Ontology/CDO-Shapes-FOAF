@@ -58,22 +58,22 @@ sh-foaf:Person-disjointWith-Project-shape
 	sh:targetClass foaf:Person ;
 	.
 
-sh-foaf:depiction-range-shape
+sh-foaf:depiction-objects-shape
 	a sh:NodeShape ;
 	sh:class foaf:Image ;
 	sh:nodeKind sh:BlankNodeOrIRI ;
 	sh:targetObjectsOf foaf:depiction ;
 	.
 
-sh-foaf:depicts-domain-shape
-	a sh:NodeShape ;
-	sh:class foaf:Image ;
-	sh:targetSubjectsOf foaf:depicts ;
-	.
-
-sh-foaf:depicts-range-shape
+sh-foaf:depicts-objects-shape
 	a sh:NodeShape ;
 	sh:nodeKind sh:BlankNodeOrIRI ;
 	sh:targetObjectsOf foaf:depicts ;
+	.
+
+sh-foaf:depicts-subjects-shape
+	a sh:NodeShape ;
+	sh:class foaf:Image ;
+	sh:targetSubjectsOf foaf:depicts ;
 	.
 
