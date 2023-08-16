@@ -18,9 +18,9 @@ SHELL := /bin/bash
 
 top_srcdir := $(shell cd .. ; pwd)
 
-uco_srcdir := $(top_srcdir)/dependencies/UCO
+sh_owl_srcdir := $(top_srcdir)/dependencies/CDO-Shapes-OWL
 
-RDF_TOOLKIT_JAR := $(uco_srcdir)/lib/rdf-toolkit.jar
+RDF_TOOLKIT_JAR := $(sh_owl_srcdir)/lib/rdf-toolkit.jar
 
 all: \
   catalog-v001.xml
@@ -68,7 +68,7 @@ foaf.ttl: \
   $(RDF_TOOLKIT_JAR)
 	source $(top_srcdir)/venv/bin/activate \
 	  && pyshacl \
-	    --shacl UCO/ontology/owl/owl.ttl \
+	    --shacl $(sh_owl_srcdir)/shapes/sh-owl.ttl \
 	    $<
 	java -jar $(RDF_TOOLKIT_JAR) \
 	  --inline-blank-nodes \

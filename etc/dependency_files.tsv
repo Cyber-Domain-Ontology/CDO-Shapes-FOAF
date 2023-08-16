@@ -1,2 +1,3 @@
 http://xmlns.com/foaf/0.1/	${top_srcdir}/dependencies/foaf.ttl
 http://example.org/shapes/foaf	${top_srcdir}/shapes/sh-foaf.ttl
+https://shapes.cyberdomainontology.org/owl/1.2.0	${top_srcdir}/dependencies/CDO-Shapes-OWL/shapes/sh-owl.ttl

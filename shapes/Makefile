@@ -18,9 +18,9 @@ SHELL := /bin/bash
 
 top_srcdir := $(shell cd .. ; pwd)
 
-uco_srcdir := $(top_srcdir)/dependencies/UCO
+sh_owl_srcdir := $(top_srcdir)/dependencies/CDO-Shapes-OWL
 
-RDF_TOOLKIT_JAR := $(uco_srcdir)/lib/rdf-toolkit.jar
+RDF_TOOLKIT_JAR := $(sh_owl_srcdir)/lib/rdf-toolkit.jar
 
 ttl_basenames := $(wildcard sh-*.ttl)
 
@@ -55,12 +55,10 @@ catalog-v001.xml: \
   $(top_srcdir)/.venv.done.log \
   $(top_srcdir)/etc/domain_directories.tsv \
   $(top_srcdir)/etc/dependency_files.tsv \
-  $(top_srcdir)/src/create-catalog-v001.xml.py \
-  $(uco_srcdir)/ontology/uco/master/catalog-v001.xml
+  $(top_srcdir)/src/create-catalog-v001.xml.py
 	rm -f _$@
 	source $(top_srcdir)/venv/bin/activate \
 	  && python3 $(top_srcdir)/src/create-catalog-v001.xml.py \
-	    --catalog-xml $(uco_srcdir)/ontology/uco/master/catalog-v001.xml \
 	    _$@ \
 	    $(top_srcdir)/etc/domain_directories.tsv \
 	    $(top_srcdir)/etc/dependency_files.tsv \

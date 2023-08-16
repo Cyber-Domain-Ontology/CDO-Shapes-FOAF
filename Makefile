@@ -45,9 +45,8 @@ all: \
 	git submodule update \
 	  --init
 	$(MAKE) \
-	  --directory dependencies/UCO \
-	  .git_submodule_init.done.log \
-	  .lib.done.log
+	  --directory dependencies/CDO-Shapes-OWL \
+	  all-lib
 	touch $@
 
 .venv.done.log: \

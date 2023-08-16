@@ -18,7 +18,7 @@ SHELL := /bin/bash
 
 top_srcdir := $(shell cd .. ; pwd)
 
-uco_srcdir := $(top_srcdir)/dependencies/UCO
+sh_owl_srcdir := $(top_srcdir)/dependencies/CDO-Shapes-OWL
 
 shape_ttls := $(wildcard $(top_srcdir)/shapes/sh-*.ttl)
 
@@ -86,10 +86,10 @@ monolithic.ttl: \
 	    --output-format turtle \
 	    $(top_srcdir)/dependencies/imports-transitive.ttl \
 	    $(shape_ttls) \
-	    $(uco_srcdir)/ontology/owl/owl.ttl \
+	    $(sh_owl_srcdir)/shapes/sh-owl.ttl \
 	    > _$@
 	source $(top_srcdir)/venv/bin/activate \
 	  && pyshacl \
-	    --shacl $(uco_srcdir)/ontology/owl/owl.ttl \
+	    --shacl $(sh_owl_srcdir)/shapes/sh-owl.ttl \
 	    _$@
 	mv _$@ $@

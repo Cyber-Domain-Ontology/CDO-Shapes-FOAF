@@ -1,5 +1,5 @@
 # imports: http://xmlns.com/foaf/0.1/
-# imports: https://ontology.unifiedcyberontology.org/owl/1.2.0
+# imports: https://shapes.cyberdomainontology.org/owl/1.2.0
 
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -7,14 +7,14 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix sh-foaf: <http://example.org/shapes/foaf/> .
-@prefix uco-owl: <https://ontology.unifiedcyberontology.org/owl/> .
+@prefix sh-owl: <https://shapes.cyberdomainontology.org/owl/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://example.org/shapes/foaf>
 	a owl:Ontology ;
 	owl:imports
 		<http://xmlns.com/foaf/0.1/> ,
-		uco-owl:1.2.0
+		sh-owl:1.2.0
 		;
 	.
 
