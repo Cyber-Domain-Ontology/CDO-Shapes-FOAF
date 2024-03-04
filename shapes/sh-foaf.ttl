@@ -1,16 +1,16 @@
 # imports: http://xmlns.com/foaf/0.1/
-# imports: https://shapes.cyberdomainontology.org/owl/1.3.0
+# imports: https://shapes.cyberdomainontology.org/sh-owl/1.3.0
 
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix sh-foaf: <http://example.org/shapes/foaf/> .
-@prefix sh-owl: <https://shapes.cyberdomainontology.org/owl/> .
+@prefix sh-foaf: <http://example.org/shapes/sh-foaf/> .
+@prefix sh-owl: <https://shapes.cyberdomainontology.org/sh-owl/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://example.org/shapes/foaf>
+<http://example.org/shapes/sh-foaf>
 	a owl:Ontology ;
 	owl:imports
 		<http://xmlns.com/foaf/0.1/> ,
