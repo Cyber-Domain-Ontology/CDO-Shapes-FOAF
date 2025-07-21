@@ -1,4 +1,4 @@
 [submodule "dependencies/CDO-Shapes-OWL"]
 	path = dependencies/CDO-Shapes-OWL
 	url = https://github.com/Cyber-Domain-Ontology/CDO-Shapes-OWL.git
-	branch = main
+	branch = develop
