@@ -22,6 +22,14 @@ sh_owl_srcdir := $(top_srcdir)/dependencies/CDO-Shapes-OWL
 
 RDF_TOOLKIT_JAR := $(sh_owl_srcdir)/lib/rdf-toolkit.jar
 
+# TODO: This variable lists files for Make to generate and delete on
+# 'make clean' calls.  This variable should be adapted to list each file
+# to normalize.
+# Note that to support the catalog-v001.xml preconditions, this list
+# must only be files in this directory.
+normalized_ttls := \
+  formatted-foaf.ttl
+
 all: \
   catalog-v001.xml
 
@@ -31,11 +39,11 @@ $(RDF_TOOLKIT_JAR):
 	@test -r $@
 
 catalog-v001.xml: \
+  $(normalized_ttls) \
   $(top_srcdir)/.venv.done.log \
   $(top_srcdir)/etc/domain_directories.tsv \
   $(top_srcdir)/etc/dependency_files.tsv \
-  $(top_srcdir)/src/create-catalog-v001.xml.py \
-  imports-transitive.ttl
+  $(top_srcdir)/src/create-catalog-v001.xml.py
 	rm -f _$@
 	source $(top_srcdir)/venv/bin/activate \
 	  && python3 $(top_srcdir)/src/create-catalog-v001.xml.py \
@@ -43,18 +51,17 @@ catalog-v001.xml: \
 	    $(top_srcdir)/etc/domain_directories.tsv \
 	    $(top_srcdir)/etc/dependency_files.tsv \
 	    "$(top_srcdir)" \
-	    imports-transitive.ttl
+	    $(normalized_ttls)
 	mv _$@ $@
 
 check: \
-  catalog-v001.xml
+  all
 
 clean:
 	@rm -f \
+	  $(normalized_ttls) \
 	  catalog-v001.xml \
-	  foaf.rdf \
-	  foaf.ttl \
-	  imports-transitive.ttl
+	  foaf.rdf
 
 foaf.rdf:
 	curl \
@@ -62,10 +69,10 @@ foaf.rdf:
 	  https://web.archive.org/web/20220614105937if_/http://xmlns.com/foaf/spec/20140114.rdf
 	mv _$@ $@
 
-foaf.ttl: \
+formatted-foaf.ttl: \
   foaf.rdf \
-  $(top_srcdir)/.venv.done.log \
-  $(RDF_TOOLKIT_JAR)
+  $(RDF_TOOLKIT_JAR) \
+  $(top_srcdir)/.venv.done.log
 	source $(top_srcdir)/venv/bin/activate \
 	  && pyshacl \
 	    --shacl $(sh_owl_srcdir)/shapes/sh-owl.ttl \
@@ -76,11 +83,4 @@ foaf.ttl: \
 	  --source-format rdf-xml \
 	  --target _$@ \
 	  --target-format turtle
-	mv _$@ $@
-
-# This recipe intentionally does not incorporate CDO ontologies (UCO,
-# CASE, etc.), to avoid redundant imports between multiple profiles.
-imports-transitive.ttl: \
-  foaf.ttl
-	cp $< _$@
 	mv _$@ $@
