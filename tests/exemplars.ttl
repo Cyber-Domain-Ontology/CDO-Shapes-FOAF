@@ -5,6 +5,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix uco-identity: <https://ontology.unifiedcyberontology.org/uco/identity/> .
 @prefix uco-observable: <https://ontology.unifiedcyberontology.org/uco/observable/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -12,6 +13,7 @@
 <http://example.org/kb>
 	a owl:Ontology ;
 	owl:imports <http://xmlns.com/foaf/0.1/> ;
+	sh:shapesGraph <http://example.org/shapes/sh-foaf> ;
 	.
 
 kb:Document-05943940-ba94-4c99-807e-6c02345609a5
