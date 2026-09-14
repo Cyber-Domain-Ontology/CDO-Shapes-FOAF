@@ -34,7 +34,8 @@ all: \
   catalog-v001.xml
 
 .PHONY: \
-  check-supply-chain
+  check-supply-chain \
+  check-supply-chain-CDO-Shapes-OWL
 
 $(RDF_TOOLKIT_JAR):
 	@echo "DEBUG:dependencies/Makefile:top_srcdir=$(top_srcdir)" >&2
@@ -64,7 +65,16 @@ check: \
 # each submodule tracking a CDO (/UCO, etc.) repository and run its
 # supply chain rule.  This recursive check is expected to be called most
 # typically by the top_srcdir recipe check-supply-chain-dependencies.
-check-supply-chain:
+check-supply-chain: \
+  check-supply-chain-CDO-Shapes-OWL
+
+check-supply-chain-CDO-Shapes-OWL:
+	$(MAKE) \
+	  --directory CDO-Shapes-OWL \
+	  check-supply-chain-dependencies
+	$(MAKE) \
+	  --directory CDO-Shapes-OWL \
+	  check-supply-chain
 
 clean:
 	@rm -f \
